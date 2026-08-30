@@ -1,0 +1,40 @@
+<div class="gallery-page r-{{ page.metadata.radius | escape }}">
+  <header class="gallery-header" id="top">
+    {% if page.metadata.kicker != "" %}<span class="kicker">{{ page.metadata.kicker | escape }}</span>{% endif %}
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.metadata.intro != "" %}<p class="intro">{{ page.metadata.intro | escape }}</p>{% endif %}
+    {% if page.metadata.show_count and page.metadata.photos != empty %}
+      <p class="gallery-count">{{ page.metadata.photos | size }} photograph{% unless page.metadata.photos.size == 1 %}s{% endunless %}</p>
+    {% endif %}
+  </header>
+
+  {% if page.metadata.photos == empty %}
+    <section class="empty"><p>No photographs in this gallery yet.</p></section>
+  {% else %}
+    <div class="gallery" style="--cols: {{ page.metadata.columns | default: 3 }}">
+      {% for photo in page.metadata.photos %}
+        {% if photo.image != "" %}
+          <figure class="shot">
+            <a href="#photo-{{ forloop.index }}">
+              <img src="{{ photo.image }}" alt="{{ photo.alt | default: photo.caption | escape }}" loading="lazy" />
+            </a>
+            {% if photo.caption != "" %}<figcaption>{{ photo.caption | escape }}</figcaption>{% endif %}
+          </figure>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% for photo in page.metadata.photos %}
+      {% if photo.image != "" %}
+        <div class="lightbox" id="photo-{{ forloop.index }}">
+          <a class="backdrop" href="#top" aria-label="Close"></a>
+          <figure>
+            <img src="{{ photo.image }}" alt="{{ photo.alt | default: photo.caption | escape }}" />
+            {% if photo.caption != "" %}<figcaption>{{ photo.caption | escape }}</figcaption>{% endif %}
+          </figure>
+          <a class="close" href="#top" aria-label="Close">&times;</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>

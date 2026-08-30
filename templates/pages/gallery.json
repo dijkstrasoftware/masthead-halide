@@ -1,0 +1,76 @@
+{
+  "label": "Gallery",
+  "description": "A photography category — a kicker, an intro, and a masonry grid of images with click-to-enlarge.",
+  "metadata": [
+    {
+      "key": "kicker",
+      "label": "Kicker",
+      "type": "string",
+      "default": "Series",
+      "description": "Small label above the title, e.g. 'Portraits' or 'Iceland, 2024'."
+    },
+    {
+      "key": "intro",
+      "label": "Intro",
+      "type": "text",
+      "default": "",
+      "description": "A short paragraph under the title. Leave empty to skip it."
+    },
+    {
+      "key": "columns",
+      "label": "Columns",
+      "type": "number",
+      "default": 3,
+      "description": "Columns on a wide screen. Drops to 2 on tablet, 1 on phone."
+    },
+    {
+      "key": "show_count",
+      "label": "Show photo count",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "key": "radius",
+      "label": "Image corners",
+      "type": "select",
+      "options": ["off", "small", "medium", "large"],
+      "default": "off",
+      "description": "Corner rounding for every photo on this page, thumbnails and enlarged view alike."
+    },
+    {
+      "key": "photos",
+      "label": "Photos",
+      "type": "list",
+      "item_label": "Photo",
+      "fields": [
+        {
+          "key": "image",
+          "label": "Image",
+          "type": "file",
+          "default": ""
+        },
+        {
+          "key": "caption",
+          "label": "Caption",
+          "type": "string",
+          "default": "",
+          "description": "Shown under the photo and in the enlarged view."
+        },
+        {
+          "key": "alt",
+          "label": "Alt text",
+          "type": "string",
+          "default": "",
+          "description": "Description for screen readers. Falls back to the caption."
+        }
+      ],
+      "default": []
+    },
+    {
+      "key": "show_navigation",
+      "label": "Show site navigation",
+      "type": "boolean",
+      "default": true
+    }
+  ]
+}

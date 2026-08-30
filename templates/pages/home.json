@@ -1,0 +1,174 @@
+{
+  "label": "Home",
+  "description": "A portfolio front page: hero, featured galleries, a short statement, and the latest journal posts. Every section can be switched off.",
+  "metadata": [
+    {
+      "key": "show_hero",
+      "label": "Show hero",
+      "type": "boolean",
+      "default": true,
+      "category": "Hero"
+    },
+    {
+      "key": "hero",
+      "label": "Hero",
+      "type": "object",
+      "category": "Hero",
+      "fields": [
+        {
+          "key": "image",
+          "label": "Image",
+          "type": "file",
+          "default": "",
+          "description": "A wide photograph. Leave empty for a text-only hero."
+        },
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "string",
+          "default": "",
+          "description": "Falls back to the page title."
+        },
+        {
+          "key": "tagline",
+          "label": "Tagline",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "key": "cta_label",
+          "label": "Button label",
+          "type": "string",
+          "default": "",
+          "description": "Leave empty to hide the button."
+        },
+        {
+          "key": "cta_url",
+          "label": "Button link",
+          "type": "url",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "key": "show_featured",
+      "label": "Show featured galleries",
+      "type": "boolean",
+      "default": true,
+      "category": "Featured galleries"
+    },
+    {
+      "key": "featured_title",
+      "label": "Section title",
+      "type": "string",
+      "default": "Selected work",
+      "category": "Featured galleries"
+    },
+    {
+      "key": "featured",
+      "label": "Galleries",
+      "type": "list",
+      "item_label": "Gallery",
+      "category": "Featured galleries",
+      "fields": [
+        {
+          "key": "image",
+          "label": "Cover image",
+          "type": "file",
+          "default": ""
+        },
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "key": "kicker",
+          "label": "Kicker",
+          "type": "string",
+          "default": "",
+          "description": "Small label under the title, e.g. a year or a place."
+        },
+        {
+          "key": "url",
+          "label": "Links to",
+          "type": "string",
+          "default": "",
+          "description": "Path of the gallery page, e.g. /dunes"
+        }
+      ],
+      "default": []
+    },
+    {
+      "key": "show_statement",
+      "label": "Show statement",
+      "type": "boolean",
+      "default": true,
+      "category": "Statement"
+    },
+    {
+      "key": "statement",
+      "label": "Statement",
+      "type": "object",
+      "category": "Statement",
+      "fields": [
+        {
+          "key": "title",
+          "label": "Title",
+          "type": "string",
+          "default": "About"
+        },
+        {
+          "key": "text",
+          "label": "Text",
+          "type": "text",
+          "default": ""
+        },
+        {
+          "key": "portrait",
+          "label": "Portrait",
+          "type": "file",
+          "default": "",
+          "description": "Optional image beside the text."
+        }
+      ]
+    },
+    {
+      "key": "show_journal",
+      "label": "Show latest journal posts",
+      "type": "boolean",
+      "default": true,
+      "category": "Journal"
+    },
+    {
+      "key": "journal_title",
+      "label": "Section title",
+      "type": "string",
+      "default": "Journal",
+      "category": "Journal"
+    },
+    {
+      "key": "journal_count",
+      "label": "How many posts",
+      "type": "number",
+      "default": 3,
+      "category": "Journal"
+    },
+    {
+      "key": "radius",
+      "label": "Image corners",
+      "type": "select",
+      "options": ["off", "small", "medium", "large"],
+      "default": "off",
+      "category": "Appearance"
+    },
+    {
+      "key": "show_navigation",
+      "label": "Show site navigation",
+      "type": "boolean",
+      "default": true,
+      "category": "Appearance"
+    }
+  ]
+}

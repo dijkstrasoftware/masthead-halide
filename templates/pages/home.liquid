@@ -1,0 +1,64 @@
+<div class="home r-{{ page.metadata.radius | escape }}">
+  {% if page.metadata.show_hero %}
+    <section class="hero">
+      {% if page.metadata.hero.image != "" %}
+        <img class="hero-image" src="{{ page.metadata.hero.image }}" alt="" />
+      {% endif %}
+      <div class="hero-text">
+        <h1>{{ page.metadata.hero.title | default: page.title | escape }}</h1>
+        {% if page.metadata.hero.tagline != "" %}<p>{{ page.metadata.hero.tagline | escape }}</p>{% endif %}
+        {% if page.metadata.hero.cta_label != "" and page.metadata.hero.cta_url != "" %}
+          <a class="button" href="{{ page.metadata.hero.cta_url }}">{{ page.metadata.hero.cta_label | escape }}</a>
+        {% endif %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if page.metadata.show_featured and page.metadata.featured != empty %}
+    <section class="featured">
+      {% if page.metadata.featured_title != "" %}<h2 class="section-title">{{ page.metadata.featured_title | escape }}</h2>{% endif %}
+      <ul class="feature-grid">
+        {% for item in page.metadata.featured %}
+          <li>
+            <a href="{{ item.url | default: '#' }}">
+              {% if item.image != "" %}<img src="{{ item.image }}" alt="" loading="lazy" />{% endif %}
+              <span class="feature-title">{{ item.title | escape }}</span>
+              {% if item.kicker != "" %}<span class="feature-kicker">{{ item.kicker | escape }}</span>{% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if page.metadata.show_statement %}
+    <section class="statement{% if page.metadata.statement.portrait != "" %} has-portrait{% endif %}">
+      <div>
+        {% if page.metadata.statement.title != "" %}<h2 class="section-title">{{ page.metadata.statement.title | escape }}</h2>{% endif %}
+        {% if page.metadata.statement.text != "" %}<p>{{ page.metadata.statement.text | escape }}</p>{% endif %}
+      </div>
+      {% if page.metadata.statement.portrait != "" %}
+        <img src="{{ page.metadata.statement.portrait }}" alt="" loading="lazy" />
+      {% endif %}
+    </section>
+  {% endif %}
+
+  {% if page.metadata.show_journal and posts != empty %}
+    <section class="journal">
+      {% if page.metadata.journal_title != "" %}<h2 class="section-title">{{ page.metadata.journal_title | escape }}</h2>{% endif %}
+      <ul class="post-list">
+        {% for post in posts limit: page.metadata.journal_count %}
+          <li>
+            <a href="{{ post.url }}">
+              <h3>{{ post.title | escape }}</h3>
+              {% if post.excerpt != "" %}<p class="excerpt">{{ post.excerpt | escape }}</p>{% endif %}
+              {% if post.published_at %}
+                <time datetime="{{ post.published_at | iso8601 }}">{{ post.published_at | strftime: "%B %-d, %Y" }}</time>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</div>
