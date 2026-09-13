@@ -1,7 +1,7 @@
 {
   "label": "Home",
   "description": "A portfolio front page: hero, featured galleries, a short statement, and the latest journal posts. Every section can be switched off.",
-  "metadata": [
+  "page_options": [
     {
       "key": "show_hero",
       "label": "Show hero",

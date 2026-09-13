@@ -40,9 +40,13 @@ main { padding-top: 3rem; padding-bottom: 5rem; }
 .post-list h2 { margin: 0 0 0.3rem; font-size: 1.2rem; font-weight: 500; }
 .post-list a:hover h2 { color: var(--accent); }
 .post-list .excerpt { margin: 0.25rem 0; color: var(--muted); }
+.post-list a:has(.post-thumb) { position: relative; min-height: 150px; padding-left: 9.5rem; }
+.post-thumb { position: absolute; left: 0; top: 0; width: 120px; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: var(--sunk); transition: opacity 0.25s ease; }
+.post-list a:hover .post-thumb { opacity: 0.75; }
 .post-list time { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
 .post, .page { max-width: 68ch; }
+.post-cover { width: 100%; height: clamp(220px, 40vh, 420px); object-fit: cover; display: block; background: var(--sunk); margin-bottom: 2rem; }
 .post header { margin-bottom: 2rem; }
 .post header h1 { font-weight: 400; margin-bottom: 0.4rem; }
 .post header time { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -105,6 +109,8 @@ main { padding-top: 3rem; padding-bottom: 5rem; }
   .gallery { columns: 1; }
   .post-body, .page-body { font-size: 1rem; }
   .post-list h2 { font-size: 1.1rem; }
+  .post-list a:has(.post-thumb) { min-height: 113px; padding-left: 7rem; }
+  .post-thumb { width: 90px; }
   .site-footer { margin-top: 2.5rem; }
 }
 

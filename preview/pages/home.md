@@ -4,7 +4,7 @@
   "slug": "home",
   "format": "theme",
   "template": "home",
-  "metadata": {
+  "page_options": {
     "show_hero": true,
     "hero": {
       "image": "https://picsum.photos/seed/hero/1800/1000",

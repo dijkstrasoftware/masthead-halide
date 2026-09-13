@@ -22,6 +22,9 @@
     {% for post in posts %}
       <li>
         <a href="{{ post.url }}">
+          {% if post.post_options.cover != "" %}
+            <img class="post-thumb" src="{{ post.post_options.cover }}" alt="{{ post.post_options.cover_alt | escape }}" loading="lazy" />
+          {% endif %}
           <h2>{{ post.title | escape }}</h2>
           {% if post.excerpt != "" %}<p class="excerpt">{{ post.excerpt | escape }}</p>{% endif %}
           {% if post.published_at %}

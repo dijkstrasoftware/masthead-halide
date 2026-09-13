@@ -1,7 +1,8 @@
 {
   "name": "Halide",
   "slug": "halide",
-  "version": "1.1.3",
+  "version": "1.2.0",
+  "render_version": "v1",
   "author": "Masthead",
   "description": "A dark, quiet portfolio theme for photographers. Galleries do the talking.",
   "tokens": [
@@ -55,7 +56,23 @@
       "category": "Posts"
     }
   ],
-  "metadata": [
+  "post_options": [
+    {
+      "key": "cover",
+      "label": "Cover photo",
+      "type": "file",
+      "default": "",
+      "description": "Shown above the post and as the thumbnail in post lists. Leave empty for a text-only post."
+    },
+    {
+      "key": "cover_alt",
+      "label": "Cover alt text",
+      "type": "string",
+      "default": "",
+      "description": "Describes the cover photo for screen readers."
+    }
+  ],
+  "page_options": [
     {
       "key": "layout",
       "label": "Page layout",

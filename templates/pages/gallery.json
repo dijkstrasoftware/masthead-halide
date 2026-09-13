@@ -1,7 +1,7 @@
 {
   "label": "Gallery",
   "description": "A photography category — a kicker, an intro, and a masonry grid of images with click-to-enlarge.",
-  "metadata": [
+  "page_options": [
     {
       "key": "kicker",
       "label": "Kicker",

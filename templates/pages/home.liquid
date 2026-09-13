@@ -1,24 +1,24 @@
-<div class="home r-{{ page.metadata.radius | escape }}">
-  {% if page.metadata.show_hero %}
+<div class="home r-{{ page.page_options.radius | escape }}">
+  {% if page.page_options.show_hero %}
     <section class="hero">
-      {% if page.metadata.hero.image != "" %}
-        <img class="hero-image" src="{{ page.metadata.hero.image }}" alt="" />
+      {% if page.page_options.hero.image != "" %}
+        <img class="hero-image" src="{{ page.page_options.hero.image }}" alt="" />
       {% endif %}
       <div class="hero-text">
-        <h1>{{ page.metadata.hero.title | default: page.title | escape }}</h1>
-        {% if page.metadata.hero.tagline != "" %}<p>{{ page.metadata.hero.tagline | escape }}</p>{% endif %}
-        {% if page.metadata.hero.cta_label != "" and page.metadata.hero.cta_url != "" %}
-          <a class="button" href="{{ page.metadata.hero.cta_url }}">{{ page.metadata.hero.cta_label | escape }}</a>
+        <h1>{{ page.page_options.hero.title | default: page.title | escape }}</h1>
+        {% if page.page_options.hero.tagline != "" %}<p>{{ page.page_options.hero.tagline | escape }}</p>{% endif %}
+        {% if page.page_options.hero.cta_label != "" and page.page_options.hero.cta_url != "" %}
+          <a class="button" href="{{ page.page_options.hero.cta_url }}">{{ page.page_options.hero.cta_label | escape }}</a>
         {% endif %}
       </div>
     </section>
   {% endif %}
 
-  {% if page.metadata.show_featured and page.metadata.featured != empty %}
+  {% if page.page_options.show_featured and page.page_options.featured != empty %}
     <section class="featured">
-      {% if page.metadata.featured_title != "" %}<h2 class="section-title">{{ page.metadata.featured_title | escape }}</h2>{% endif %}
+      {% if page.page_options.featured_title != "" %}<h2 class="section-title">{{ page.page_options.featured_title | escape }}</h2>{% endif %}
       <ul class="feature-grid">
-        {% for item in page.metadata.featured %}
+        {% for item in page.page_options.featured %}
           <li>
             <a href="{{ item.url | default: '#' }}">
               {% if item.image != "" %}<img src="{{ item.image }}" alt="" loading="lazy" />{% endif %}
@@ -31,25 +31,28 @@
     </section>
   {% endif %}
 
-  {% if page.metadata.show_statement %}
-    <section class="statement{% if page.metadata.statement.portrait != "" %} has-portrait{% endif %}">
+  {% if page.page_options.show_statement %}
+    <section class="statement{% if page.page_options.statement.portrait != "" %} has-portrait{% endif %}">
       <div>
-        {% if page.metadata.statement.title != "" %}<h2 class="section-title">{{ page.metadata.statement.title | escape }}</h2>{% endif %}
-        {% if page.metadata.statement.text != "" %}<p>{{ page.metadata.statement.text | escape }}</p>{% endif %}
+        {% if page.page_options.statement.title != "" %}<h2 class="section-title">{{ page.page_options.statement.title | escape }}</h2>{% endif %}
+        {% if page.page_options.statement.text != "" %}<p>{{ page.page_options.statement.text | escape }}</p>{% endif %}
       </div>
-      {% if page.metadata.statement.portrait != "" %}
-        <img src="{{ page.metadata.statement.portrait }}" alt="" loading="lazy" />
+      {% if page.page_options.statement.portrait != "" %}
+        <img src="{{ page.page_options.statement.portrait }}" alt="" loading="lazy" />
       {% endif %}
     </section>
   {% endif %}
 
-  {% if page.metadata.show_journal and posts != empty %}
+  {% if page.page_options.show_journal and posts != empty %}
     <section class="journal">
-      {% if page.metadata.journal_title != "" %}<h2 class="section-title">{{ page.metadata.journal_title | escape }}</h2>{% endif %}
+      {% if page.page_options.journal_title != "" %}<h2 class="section-title">{{ page.page_options.journal_title | escape }}</h2>{% endif %}
       <ul class="post-list">
-        {% for post in posts limit: page.metadata.journal_count %}
+        {% for post in posts limit: page.page_options.journal_count %}
           <li>
             <a href="{{ post.url }}">
+              {% if post.post_options.cover != "" %}
+                <img class="post-thumb" src="{{ post.post_options.cover }}" alt="{{ post.post_options.cover_alt | escape }}" loading="lazy" />
+              {% endif %}
               <h3>{{ post.title | escape }}</h3>
               {% if post.excerpt != "" %}<p class="excerpt">{{ post.excerpt | escape }}</p>{% endif %}
               {% if post.published_at %}

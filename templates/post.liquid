@@ -1,4 +1,7 @@
 <article class="post">
+  {% if post.post_options.cover != "" %}
+    <img class="post-cover" src="{{ post.post_options.cover }}" alt="{{ post.post_options.cover_alt | escape }}" />
+  {% endif %}
   <header>
     <h1>{{ post.title | escape }}</h1>
     {% if post.published_at %}

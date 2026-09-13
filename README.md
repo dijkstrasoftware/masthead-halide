@@ -44,9 +44,26 @@ just a hero:
 Sections you switch off render nothing at all — no empty headings, no gaps. The
 same **Image corners** dropdown applies here.
 
+## Posts
+
+Every post gets two options in the post editor:
+
+| Field | What it does |
+|---|---|
+| Cover photo | A wide image above the post, and the thumbnail beside it in every post list |
+| Cover alt text | Describes the cover for screen readers |
+
+Leave the cover empty and the post renders as plain text — the list row falls
+back to its old full-width layout, so a mixed list is fine.
+
 ## Tokens
 
 `bg`, `fg`, `accent` and `max` (content width) drive the whole palette; the
 muted, rule and sunken tones are derived from them with `color-mix`, so
 changing the background keeps the theme coherent. `favicon` and the two post
 toggles (`show_search`, `show_tags`) work as in any Masthead theme.
+
+## Render version
+
+The theme pins `"render_version": "v1"`, so page settings reach templates as
+`page.page_options.<key>` and post settings as `post.post_options.<key>`.

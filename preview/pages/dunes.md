@@ -4,7 +4,7 @@
   "slug": "dunes",
   "format": "theme",
   "template": "gallery",
-  "metadata": {
+  "page_options": {
     "kicker": "Series, 2024",
     "intro": "Six mornings on the north coast, waiting for the light to come off the water. Shot on 35mm, developed at home.",
     "columns": 3,
